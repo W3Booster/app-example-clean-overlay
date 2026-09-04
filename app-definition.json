@@ -1,0 +1,43 @@
+{
+  "name": "Clean Overlay",
+  "description": "A minimal transparent match overlay for OBS and in-game composition. Demonstrates players, teams, game time, and the same SDK runtime as a dashboard.",
+  "surfaces": [
+    "application",
+    "streamOverlay",
+    "ingameOverlay"
+  ],
+  "applicationUrl": "http://localhost:5173/?demo=0",
+  "streamOverlayUrl": "http://localhost:5173/?view=overlay&demo=0",
+  "ingameOverlayUrl": "http://localhost:5173/?view=overlay&demo=0",
+  "scopes": [
+    "match:read",
+    "players:read",
+    "resources:read",
+    "heroes:read",
+    "overlay:read"
+  ],
+  "settingsSchema": {
+    "version": 1,
+    "sections": [
+      {
+        "id": "display",
+        "title": "Display",
+        "groups": [
+          {
+            "id": "appearance",
+            "title": "Appearance"
+          }
+        ],
+        "fields": [
+          {
+            "key": "display.title",
+            "label": "App title",
+            "type": "text",
+            "group": "appearance",
+            "default": "My first W3Booster app"
+          }
+        ]
+      }
+    ]
+  }
+}

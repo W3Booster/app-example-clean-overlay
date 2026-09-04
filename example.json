@@ -1,0 +1,6 @@
+{
+  "slug": "clean-overlay",
+  "repository": "https://github.com/W3Booster/app-clean-overlay",
+  "theme": "broadcast",
+  "overlay": true
+}
