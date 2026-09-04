@@ -2,15 +2,15 @@
 
 A minimal transparent match overlay for OBS and in-game composition. Demonstrates players, teams, game time, and the same SDK runtime as a dashboard.
 
-[Try it now](https://w3booster.github.io/app-clean-overlay/) · [Developer docs](https://website.w3booster.com/developer/) · [All examples](https://github.com/W3Booster/app-examples)
+[Try it now](https://w3booster.github.io/app-example-clean-overlay/) · [Developer docs](https://website.w3booster.com/developer/) · [All examples](https://github.com/W3Booster/app-examples)
 
 ## Run locally
 
 Node.js 22.22.3 or newer. No account, Warcraft III, desktop client, or database needed for demo mode.
 
 ```sh
-git clone https://github.com/W3Booster/app-clean-overlay.git
-cd app-clean-overlay
+git clone https://github.com/W3Booster/app-example-clean-overlay.git
+cd app-example-clean-overlay
 npm ci
 npm run dev
 ```
@@ -28,7 +28,7 @@ The checked-in binding belongs to the official Clean Overlay app. Cloning it doe
 3. Bind your new public client ID:
 
    ```sh
-   npx w3booster-settings init YOUR_CLIENT_ID --endpoint https://api.w3booster.com
+   npm run app:fork -- YOUR_NEW_CLIENT_ID
    ```
 
 4. Commit the generated binding and package.json. Use **Test locally** with `http://localhost:5173/?demo=0`, then launch through W3Booster.
