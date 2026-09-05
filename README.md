@@ -1,6 +1,6 @@
 # Minimal Match Strip
 
-A focused W3Booster example by **W3Pad**. Show player names, races, teams, and the match clock with a small transparent strip. This is intentionally **overlay-only**: passive match information does not need a separate application window.
+A focused W3Booster example. Show player names, races, teams, and the match clock with a small transparent strip. This is intentionally **overlay-only**: passive match information does not need a separate application window.
 
 [Try the demo](https://w3booster.github.io/app-example-clean-overlay/) · [Developer docs](https://website.w3booster.com/developer/) · [All examples](https://website.w3booster.com/developer/examples/)
 
@@ -27,6 +27,8 @@ Open **http://localhost:5173/**. Expect **DEMO DATA** and **Connected · synchro
 4. Try finished: the clock is labeled FINAL rather than continuing to claim LIVE.
 
 There are no fake score controls, unused settings, hero/resource requests, or compact-window buttons. Disconnected or unsynchronized output is hidden. The checkerboard only appears in the browser preview.
+
+The interface uses W3Booster-style dark surfaces, compact controls and a distinct accent. `src/shell.css` contains the small, standalone shell; the feature stylesheet contains only this app’s layout. Headings describe the task, not a marketing message.
 
 ## Surfaces and minimum permissions
 

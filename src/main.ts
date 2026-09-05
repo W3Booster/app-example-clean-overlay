@@ -1,3 +1,4 @@
+import './shell.css';
 import './style.css';
 import { classifyW3BoosterError } from '@w3booster/sdk';
 import { w3boosterApp } from './w3booster.generated';
@@ -9,7 +10,7 @@ document.body.dataset.application = w3boosterApp.clientId;
 // One repository, one app.
 const view = query.get('view') || 'application';
 const theme = 'broadcast';
-const presentation = { brand: 'MINIMAL MATCH STRIP', title: 'The match. Nothing in its way.', description: 'An overlay-only match strip: names, races, teams, and a clock. This browser preview is a development aid, not an extra application window.' };
+const presentation = { brand: 'MINIMAL MATCH STRIP', title: 'Match overlay', description: 'Player names, races and match time.' };
 document.body.dataset.theme = theme;
 document.title = presentation.brand + ' · W3Booster Examples';
 // Direct visits start offline; registered W3Booster URLs explicitly select demo=0.
@@ -26,7 +27,7 @@ const repository = element('a', 'Public repository ↗', 'repository-link'); rep
 const badge = element('span', demo ? 'DEMO DATA' : 'LIVE CONNECTION', 'badge'); headerActions.append(badge, repository); header.append(headerActions);
 const intro = element('div', '', 'intro');
 const appTitle = element('h1', presentation.title);
-intro.append(element('p', 'W3BOOSTER / OPEN-SOURCE EXAMPLE APP', 'eyebrow'), appTitle);
+intro.append(appTitle);
 intro.append(element('p', presentation.description));
 const status = element('p', 'Starting…', 'notice'); status.setAttribute('role', 'status');
 const content = element('div', '', 'content');
@@ -44,10 +45,9 @@ if (demo) {
 }
 const feedback = element('p', '', 'notice'); feedback.setAttribute('role', 'status');
 const footer = element('footer');
-for (const [text, href] of [['Build your own', 'https://website.w3booster.com/developer/first-app/'], ['View source', 'https://github.com/W3Booster/app-example-clean-overlay'], ['SDK reference', 'https://website.w3booster.com/developer/api/']]) {
+for (const [text, href] of [['Setup guide', 'https://website.w3booster.com/developer/first-app/'], ['View source', 'https://github.com/W3Booster/app-example-clean-overlay'], ['SDK reference', 'https://website.w3booster.com/developer/api/']]) {
   const link = element('a', text); link.href = href; footer.append(link);
 }
-const sourceLink = element('a', 'Read this example’s code ↗', 'source-link'); sourceLink.href = 'https://github.com/W3Booster/app-example-clean-overlay/blob/main/src/render.ts'; sourceLink.target = '_blank'; sourceLink.rel = 'noopener noreferrer'; controls.append(sourceLink);
 shell.append(header, intro);
 shell.append(controls, status, content, feedback, diagnostic, footer); root.replaceChildren(shell);
 const demoOptions = demo ? { state: (await import('./scenarios')).scenarioState(query.get('scenario') || 'match'), interval: query.get('capture') === '1' || ['no-match', 'finished'].includes(query.get('scenario') || '') ? 0 : 1000 } : undefined;

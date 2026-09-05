@@ -21,10 +21,10 @@ export function broadcast(state: MatchState | null) {
 
 export function studio(state: MatchState | null) {
   const view = element('section', '', 'broadcast-studio');
-  const bar = element('div', '', 'studio-bar'); bar.append(element('span', 'PROGRAM / OVERLAY PREVIEW'), element('span', 'TRANSPARENT CANVAS'));
+  const bar = element('div', '', 'studio-bar'); bar.append(element('span', 'OVERLAY PREVIEW'), element('span', 'TRANSPARENT BACKGROUND'));
   const stage = element('div', '', 'studio-stage');
-  stage.append(broadcast(state), element('span', !state || state.match.status === 'none' ? 'Between matches, the overlay is hidden.' : 'Preview only. The overlay canvas is transparent.', 'stage-caption'));
+  stage.append(broadcast(state), element('span', !state || state.match.status === 'none' ? 'No match. Overlay hidden.' : 'Checkerboard is not shown on stream.', 'stage-caption'));
   const info = element('div', '', 'studio-info');
-  info.append(element('h2', 'Small footprint. Clear match story.'), element('p', 'The checkerboard only appears in this preview. In W3Booster, turn on Stream or In-game for Clean Overlay. To show it in OBS, add your W3Booster URL as a browser source.'));
+  info.append(element('p', 'Enable Stream or In-game in W3Booster. For OBS, use Set up OBS.'));
   view.append(bar, stage, info); return view;
 }
