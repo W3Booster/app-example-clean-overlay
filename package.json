@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Clean Overlay — a standalone W3Booster TypeScript example",
+  "description": "Minimal Match Strip — a focused W3Booster workflow example",
   "license": "MIT",
   "repository": "https://github.com/W3Booster/app-example-clean-overlay",
   "scripts": {
@@ -33,5 +33,6 @@
     "clientId": "app_4a4b824c7670c1003ea20ca0",
     "settingsOutput": "src/w3booster.generated.ts",
     "endpoint": "https://api.w3booster.com"
-  }
+  },
+  "author": "W3Pad"
 }

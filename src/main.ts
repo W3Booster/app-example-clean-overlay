@@ -9,7 +9,7 @@ document.body.dataset.application = w3boosterApp.clientId;
 // One repository, one app.
 const view = query.get('view') || 'application';
 const theme = 'broadcast';
-const presentation = { brand: 'CLEAN OVERLAY', title: 'Less overlay. More game.', description: 'A minimal transparent match overlay for OBS and in-game composition. Demonstrates players, teams, game time, and the same SDK runtime as a dashboard.' };
+const presentation = { brand: 'MINIMAL MATCH STRIP', title: 'The match. Nothing in its way.', description: 'An overlay-only match strip: names, races, teams, and a clock. This browser preview is a development aid, not an extra application window.' };
 document.body.dataset.theme = theme;
 document.title = presentation.brand + ' · W3Booster Examples';
 // Direct visits start offline; registered W3Booster URLs explicitly select demo=0.
@@ -63,7 +63,7 @@ runtime.lifecycle.subscribe(snapshot => {
     : `${snapshot.status}${snapshot.retry ? ` · attempt ${snapshot.retry.attempt}` : ''}`;
   document.body.dataset.connection = snapshot.status;
   document.body.dataset.synchronized = String(snapshot.isSynchronized);
-  content.replaceChildren(overlay ? broadcast(snapshot.state) : studio(snapshot.state));
+  content.replaceChildren(overlay ? broadcast(snapshot.isSynchronized ? snapshot.state : null) : studio(snapshot.state));
   details.textContent = JSON.stringify({ mode: demo ? 'demo' : 'live', status: snapshot.status, synchronized: snapshot.isSynchronized, match: snapshot.state?.match.status, dataCapabilities: snapshot.state?.capabilities || [], host: snapshot.host, definitionRevision: w3boosterApp.revision }, null, 2);
 }, { signal });
 runtime.client.on('issue', issue => { feedback.textContent = `A recoverable ${issue.source} issue occurred. See the browser console.`; console.warn(issue.source, issue.error); }, { signal });
